@@ -1,0 +1,154 @@
+<MainClass>
+    path: path
+    btnLoad: btnLoad
+    image: image
+    imageEnc: imageEnc
+    do_default_tab: False
+    encode: encode
+    btnEncode: btnEncode
+    filename: filename
+	btnDecode: btnDecode
+	labelDecode: labelDecode
+	imageDec: imageDec
+	loadMessage: loadMessage
+	decodeMessage: decodeMessage
+	encodeMessage: encodeMessage
+    
+    TabbedPanelItem:
+        text: "Load Image"
+        GridLayout:
+            cols:1
+            size: root.width, root.height
+
+            GridLayout:
+                cols:2
+				size_hint: 1, .25
+                Label:
+                    text: "Path/Filename:"
+
+                TextInput:
+                    id: path
+                    multiline: False
+                    on_text_validate: root.getImage()
+					hint_text: "path/filename.[jpg/png]"
+
+            Button:
+                id: btnLoad
+				size_hint: 1, .25
+                text: "Load"
+                on_press: root.getImage()
+
+            Image:
+                id: image
+				
+			Label:
+				id: loadMessage
+				text_size: self.width, None
+				size_hint: 1, .25
+				multiline: False
+				text: "Msg:  Type the path and filename into the textbox and then press Load to open an image."
+                
+    TabbedPanelItem:
+        text: "Decode Image"
+		GridLayout:
+			cols:1
+			size: root.width, root.height
+			
+			Button:
+				id: btnDecode
+				size_hint: 1, .25
+				text: "Decode Image"
+				on_press: root.decodeImage()
+				
+			ScrollView:
+				Label:
+					id: labelDecode
+					size_hint_y: None
+					text_size: self.width, None
+					height: self.texture_size[1]
+				
+			Image:
+				id: imageDec
+				
+			Label:
+				id: decodeMessage
+				text_size: self.width, None
+				size_hint: 1, .25
+				multiline: False
+        
+    TabbedPanelItem:
+        text: "Encode Image"
+        GridLayout:
+            cols:1
+            size: root.width, root.height
+
+            GridLayout:
+                cols:2
+                Label:
+                    text: "Text to Encode:"
+				ScrollView:
+					TextInput:
+						hint_text: "Encoded Message"
+						id: encode
+                Label:
+					size_hint: 1, .25
+                    text: "New Image Filename:"
+                TextInput:
+                    hint_text: "path/filename.png"
+					size_hint: 1, .25
+                    id: filename
+            Button:
+                id: btnEncode
+				size_hint: 1, .25
+                text: "Encode & Save"
+                on_press: root.encodeImage()
+
+            Image:
+                id: imageEnc
+				
+			Label:
+				id: encodeMessage
+				text_size: self.width, None
+				size_hint: 1, .25
+				multiline: False
+				
+	TabbedPanelItem:
+		text: "About"
+		GridLayout:
+			cols:1
+			size: root.width, root.height
+			
+			Label:
+				text_size: self.width, None
+				bold: True
+				text: "ImageScript is a small software designed to encode and decode images with a user provided text."
+			Label:
+				text_size: self.width, None
+				bold: True
+				text: "Step 1: Load an image in the 'Load Image' tab."
+			Label:
+				text_size: self.width, None
+				italic: True
+				text: "        ---A .jpg is fine if you plan on Encoding it into a .png, otherwise a .png works better for Decoding."
+			Label:
+				text_size: self.width, None
+				bold: True
+				text: "Step 2: Decide whether you want to Encode or Decode the image."
+			Label:
+				text_size: self.width, None
+				bold: True
+				text: "If Decoding: Move to the 'Decode Image' tab and select Decode Image."
+			Label:
+				text_size: self.width, None
+				italic: True
+				text: "        ---Remember, a .png works better for decoding."
+			Label:	
+				text_size: self.width, None
+				bold: True
+				text: "If Encoding: Move to the 'Encode Image' tab, write your message, select a path and filename for the new image, and select Encode & Save."
+			Label:
+				text_size: self.width, None
+				italic: True
+				text: "        ---Use a .png file type when saving the new image."
+				
+        
