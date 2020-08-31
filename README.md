@@ -10,3 +10,6 @@ Kivy is used simply to make the reusable and repeatable GUI.
 To build the executable on Windows, I (basically verbatum besides some name changes) followed the 'Simple App' instructions at this link:
 
 https://kivy.org/doc/stable/guide/packaging-windows.html
+
+
+Kivy (and Python, obviously) is cross platform, but I have not built this for macOS or linux.  Feel free to branch and/or fork this to make those builds.
